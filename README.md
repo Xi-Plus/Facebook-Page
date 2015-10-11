@@ -7,7 +7,7 @@ Facebook粉絲專頁原始碼
 
 
 ## TNGS.Notification
-[Tnfsh公佈欄通知](http://www.facebook.com/TNGS.Notification)<br>
+[Tngs公佈欄通知](http://www.facebook.com/TNGS.Notification)<br>
 發布[台南女中公佈欄](http://www.tngs.tn.edu.tw/tngs/board/)的公告標題
 
 ## Todays.Festival
