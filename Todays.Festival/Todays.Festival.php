@@ -29,8 +29,8 @@ $html=file_get_contents("https://zh.wikipedia.org/zh-tw/".date("m")."月".date("
 $html=str_replace(array("\t","\n"),"",$html);
 $start=strpos($html,"節假日和習俗");
 $html=substr($html, $start);
-$pattern='/<h2>.*?節假日和習俗.*?<\/h2>.*?<ul>(.*?)<\/ul>/';
-preg_match($pattern, $html ,$match);
+$pattern='/<h2>.*?節假日和習俗.*?<\/h2><ul>(.*?)<\/ul>/';
+if(!preg_match($pattern, $html ,$match))exit("No festival.");
 $html=$match[1];
 $pattern='/<li>(.*?)<\/li>/';
 preg_match_all($pattern, $html ,$match);
