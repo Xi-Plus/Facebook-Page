@@ -65,7 +65,7 @@ echo $postmessage."\n";
 
 if($count>0){
 	$params = array(
-		"message"=>$message
+		"message"=>$postmessage
 	);
 	$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
 	var_dump($response);
