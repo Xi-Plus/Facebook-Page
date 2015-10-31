@@ -29,7 +29,7 @@ $start=strpos($html, "一般訊息");
 $html=substr($html, $start);
 $html=str_replace(array("\r\n","\t",'<img src=file.png border=0 width=20 alt="有附件">'), "", $html);
 
-$pattern='/<a href=index\.asp\?chid=.*?>(.*?)<\/FONT><BR>.*?<\/a><font size=1 >(.*?)<td.*?><font.*?><a href=(.*?)><font.*?>(.*?)<\/a>.*?<td.*?><font.*?>.*?<td.*?>(\d*?)年(\d*?)月(\d*?)日/';
+$pattern='/<a href=index\.asp\?chid=.*?>(.*?)<\/FONT><BR>.*?<\/a><font size=1 .*?>(.*?)<td.*?><font.*?><a href=(.*?)><font.*?>(.*?)<\/a>.*?<td.*?><font.*?>.*?<td.*?>(\d*?)年(\d*?)月(\d*?)日/';
 preg_match_all($pattern, $html ,$match);
 
 $query=new query;
