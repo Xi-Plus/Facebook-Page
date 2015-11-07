@@ -57,7 +57,7 @@ for ($i=0; $i < $length ; $i++) {
 			array("time",date("Y-m-d H:i:s")),
 			array("token",md5(uniqid(rand(),true)))
 		);
-		//INSERT($query);
+		INSERT($query);
 	}else echo "NO\n";
 }
 
@@ -68,7 +68,7 @@ if($count>0){
 	$params = array(
 		"message"=>$postmessage
 	);
-	//$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
+	$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
 	var_dump($response);
 }
 ?>
