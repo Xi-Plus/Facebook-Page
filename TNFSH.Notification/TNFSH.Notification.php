@@ -8,6 +8,7 @@ require_once(__DIR__.'/../global_config.php');
 require_once(__DIR__.'/config.php');
 require_once($config['sql_path']);
 require_once($config['facebook_sdk_path']);
+require_once($config['get_redirect_url_path']);
 
 $fb = new Facebook\Facebook([
 	'app_id' => $config['app_id'],
@@ -42,7 +43,7 @@ $length=count($match[1]);
 $count=0;
 $postmessage="";
 for ($i=0; $i < $length ; $i++) {
-	$message=$match[2][$i]."/".$match[3][$i]." ".$match[6][$i]."：".$match[5][$i]."\n連結: ".$match[4][$i];
+	$message=$match[2][$i]."/".$match[3][$i]." ".$match[6][$i]."：".$match[5][$i]."  ".get_redirect_url($match[4][$i])->url;
 	$checktext=$match[1][$i]."-".$match[2][$i]."-".$match[3][$i]."_".$match[5][$i]."_".$match[4][$i];
 	echo $message."\n";
 	if(!in_array($checktext, $list)){
@@ -56,7 +57,7 @@ for ($i=0; $i < $length ; $i++) {
 			array("time",date("Y-m-d H:i:s")),
 			array("token",md5(uniqid(rand(),true)))
 		);
-		INSERT($query);
+		//INSERT($query);
 	}else echo "NO\n";
 }
 
@@ -67,7 +68,7 @@ if($count>0){
 	$params = array(
 		"message"=>$postmessage
 	);
-	$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
+	//$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
 	var_dump($response);
 }
 ?>
