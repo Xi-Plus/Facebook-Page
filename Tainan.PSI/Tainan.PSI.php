@@ -56,11 +56,11 @@ $over=false;
 $message=date("Y/m/d G")."時\n";
 foreach ($followlist as $name) {
 	if($data[$name]->PSI>=60){
-		$message.=$data[$name]->SiteName." PSI達到 ".$data[$name]->PSI." 為 ".$psilevelname[$data[$name]->PSIStyle]." 等級\n";
+		$message.=$data[$name]->SiteName." PSI ".$data[$name]->PSI." ".$psilevelname[$data[$name]->PSIStyle]."等級\n";
 		$over=true;
 	}
 	if($data[$name]->FPMI>=4){
-		$message.=$data[$name]->SiteName." PM2.5達到 ".$data[$name]->PM25." 為第 ".$data[$name]->FPMI." 級 等級分類 ".$pm25levelname[$data[$name]->FPMI]."\n";
+		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]."\n";
 		$over=true;
 	}
 }
