@@ -22,10 +22,12 @@ foreach($response["data"] as $temp){
 		break;
 	}
 }
+$month=date("n");
+$date=date("j");
 
-$message=date("n")."月".date("j")."日的節假日和習俗有\n";
+$message=$month."月".$date."日的節假日和習俗有\n";
 
-$html=file_get_contents("https://zh.wikipedia.org/zh-tw/".date("m")."月".date("d")."日");
+$html=file_get_contents("https://zh.wikipedia.org/zh-tw/".$month."月".$date."日");
 $html=str_replace(array("\t","\n"),"",$html);
 $start=strpos($html,"節假日和習俗");
 $html=substr($html, $start);
@@ -39,7 +41,7 @@ foreach($match[1] as $temp){
 	$temp=preg_replace("/\[.*?\]/", "", $temp);
 	$message.="\n".$temp;
 }
-$message.="\n\nhttps://zh.wikipedia.org/zh-tw/".date("n")."月".date("j")."日#.E8.8A.82.E5.81.87.E6.97.A5.E5.92.8C.E4.B9.A0.E4.BF.97";
+$message.="\n\nhttps://zh.wikipedia.org/zh-tw/".$month."月".$date."日#.E8.8A.82.E5.81.87.E6.97.A5.E5.92.8C.E4.B9.A0.E4.BF.97";
 echo $message."\n";
 $params = array(
 	"message"=>$message
