@@ -26,6 +26,7 @@ foreach($response["data"] as $temp){
 
 $html=file_get_contents("http://www.tngs.tn.edu.tw/tngs/board/");
 $html=iconv("BIG5", "UTF-8//IGNORE", $html);
+$html=html_entity_decode($html);
 $start=strpos($html, "一般訊息");
 $html=substr($html, $start);
 $html=str_replace(array("\r\n","\t",'<img src=file.png border=0 width=20 alt="有附件">'), "", $html);
@@ -69,7 +70,7 @@ if($count>0){
 	$params = array(
 		"message"=>$postmessage
 	);
-	$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
-	var_dump($response);
+	// $response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
+	// var_dump($response);
 }
 ?>
