@@ -70,7 +70,7 @@ if($count>0){
 	$params = array(
 		"message"=>$postmessage
 	);
-	// $response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
-	// var_dump($response);
+	$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
+	var_dump($response);
 }
 ?>
