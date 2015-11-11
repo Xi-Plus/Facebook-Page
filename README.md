@@ -28,8 +28,8 @@ Facebook粉絲專頁原始碼
 [考試倒數](http://www.facebook.com/800668270014037)<br>
 發布考試倒數剩餘天數
 
-### psi
-[台南空氣汙染即時通知](http://www.facebook.com/1587579141497470)<br>
+### Tainan.PSI
+[台南空氣汙染即時通知](http://www.facebook.com/Tainan.PSI)<br>
 當[行政院環保署 - 空氣品質監測網](http://taqm.epa.gov.tw/taqm/tw/PsiMap.aspx)(台南地區)空氣汙染超過良好標準時發布
 
 ### tainaninfo
