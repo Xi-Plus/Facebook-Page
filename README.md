@@ -11,10 +11,13 @@ Facebook粉絲專頁原始碼
 [Tnfsh公佈欄通知](http://www.facebook.com/TNFSH.Notification)<br>
 發布[台南一中公佈欄](http://www.tnfsh.tn.edu.tw/files/501-1000-1012-1.php)的公告標題
 
-
 ### TNGS.Notification
 [Tngs公佈欄通知](http://www.facebook.com/TNGS.Notification)<br>
 發布[台南女中公佈欄](http://www.tngs.tn.edu.tw/tngs/board/)的公告標題
+
+### Tainan.PSI
+[台南空氣汙染即時通知](http://www.facebook.com/Tainan.PSI)<br>
+當[行政院環保署 - 空氣品質監測網](http://taqm.epa.gov.tw/taqm/tw/PsiMap.aspx)(台南地區)空氣汙染超過良好標準時發布
 
 ### Todays.Festival
 [Today's Festival](http://www.facebook.com/493820264128751)<br>
@@ -27,10 +30,6 @@ Facebook粉絲專頁原始碼
 ### exam
 [考試倒數](http://www.facebook.com/800668270014037)<br>
 發布考試倒數剩餘天數
-
-### Tainan.PSI
-[台南空氣汙染即時通知](http://www.facebook.com/Tainan.PSI)<br>
-當[行政院環保署 - 空氣品質監測網](http://taqm.epa.gov.tw/taqm/tw/PsiMap.aspx)(台南地區)空氣汙染超過良好標準時發布
 
 ### tainaninfo
 [台南氣象水文資訊](http://www.facebook.com/735253119929723)<br>
