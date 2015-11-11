@@ -55,11 +55,11 @@ $followlist=array("Tainan","Annan","Shanhua");
 $over=false;
 $message=date("Y/m/d G")."時\n";
 foreach ($followlist as $name) {
-	if($data[$name]->PSI>=60){
+	if($data[$name]->PSI>=$config["PSI_over"]){
 		$message.=$data[$name]->SiteName." PSI ".$data[$name]->PSI." ".$psilevelname[$data[$name]->PSIStyle]."等級\n";
 		$over=true;
 	}
-	if($data[$name]->FPMI>=4){
+	if($data[$name]->FPMI>=$config["PM2.5_over"]){
 		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]."\n";
 		$over=true;
 	}
