@@ -28,6 +28,7 @@ $date=date("j");
 $message=$month."月".$date."日的節假日和習俗有\n";
 
 $html=file_get_contents("https://zh.wikipedia.org/zh-tw/".$month."月".$date."日");
+$html=html_entity_decode($html);
 $html=str_replace(array("\t","\n"),"",$html);
 $temp=strpos($html,'.E8.8A.82.E5.81.87.E6.97.A5.E5.92.8C.E4.B9.A0.E4.BF.97">節假日和習俗');
 $html=substr($html,$temp);
