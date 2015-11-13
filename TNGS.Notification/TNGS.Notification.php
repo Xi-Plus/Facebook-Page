@@ -50,7 +50,7 @@ for ($i=0; $i < $length ; $i++) {
 	echo $message."\n";
 	if(!in_array($match[3][$i], $list)){
 		$count++;
-		$postmessage.="\n\n".$message;
+		$postmessage.=$message."\n";
 		echo "YES\n";
 		$query=new query;
 		$query->table="tngsmessage";
@@ -63,7 +63,6 @@ for ($i=0; $i < $length ; $i++) {
 	}else echo "NO\n";
 }
 
-$postmessage=date("Y/m/d H")."時  有 ".$count." 則新公告".$postmessage;
 echo $postmessage."\n";
 
 if($count>0){
