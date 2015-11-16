@@ -30,32 +30,19 @@ $message=$month."月".$date."日的節假日和習俗有\n";
 $html=file_get_contents("https://zh.wikipedia.org/zh-tw/".$month."月".$date."日");
 $html=html_entity_decode($html);
 $html=str_replace(array("\t","\n"),"",$html);
-$temp=strpos($html,'.E8.8A.82.E5.81.87.E6.97.A5.E5.92.8C.E4.B9.A0.E4.BF.97">節假日和習俗');
-$html=substr($html,$temp);
-$start=strpos($html,"<ul>");
-$temp=$start+1;
-$count=1;
-while($count>0){
-	$temp1=strpos($html,"<ul>",$temp);
-	$temp2=strpos($html,"</ul>",$temp);
-	if($temp1!==false&&$temp1<$temp2){
-		$count++;
-		$temp=$temp1+1;
-	}else if($temp2!==false&&$temp2<$temp1){
-		$count--;
-		$temp=$temp2+1;
-	}else if($temp1===false&&$temp2!==false){
-		$count--;
-		$temp=$temp2+1;
-	}else exit("Something went wrong!");
+$start=strpos($html,"節假日和習俗");
+$html=substr($html, $start);
+$pattern='/<h2>.*?節假日和習俗.*?<\/h2><ul>(.*?)<\/ul>/';
+if(!preg_match($pattern, $html ,$match))exit("No festival.\n");
+$html=$match[1];
+$pattern='/<li>(.*?)<\/li>/';
+preg_match_all($pattern, $html ,$match);
+foreach($match[1] as $temp){
+	$temp=strip_tags($temp);
+	$temp=preg_replace("/\[.*?\]/", "", $temp);
+	$message.="\n".$temp;
 }
-$end=$temp;
-$html=substr($html, $start, $end-$start);
-$html=str_replace("<ul>", "\n<ul>", $html);
-$html=preg_replace("/<li>(.*?)<\/li>/","* $1\n",$html);
-$html=strip_tags($html);
-
-$message.=$html."\nhttps://zh.wikipedia.org/zh-tw/".$month."月".$date."日#.E8.8A.82.E5.81.87.E6.97.A5.E5.92.8C.E4.B9.A0.E4.BF.97";
+$message.="\n\nhttps://zh.wikipedia.org/zh-tw/".$month."月".$date."日#.E8.8A.82.E5.81.87.E6.97.A5.E5.92.8C.E4.B9.A0.E4.BF.97";
 echo $message."\n";
 $params = array(
 	"message"=>$message
