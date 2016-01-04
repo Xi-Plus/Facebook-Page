@@ -79,7 +79,7 @@ if($over){
 	$params = array(
 		"message"=>$message
 	);
-	// $response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
+	$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
 	var_dump($response);
 }
 ?>
