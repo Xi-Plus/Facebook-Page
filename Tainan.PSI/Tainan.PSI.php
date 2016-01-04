@@ -54,16 +54,26 @@ $pm25levelname=array(
 $followlist=array("Tainan","Annan","Shanhua");
 $over=false;
 $message=date("Y/m/d G")."時\n";
+$log=file_get_contents("log.txt");
+$log=json_decode($log,true);
+function cmp($old,$new){
+	if($new>$old)return "▲";
+	else if($new<$old)return "▼";
+	else return "●";
+}
 foreach ($followlist as $name) {
 	if($data[$name]->PSI>=$config["PSI_over"]){
-		$message.=$data[$name]->SiteName." PSI ".$data[$name]->PSI." ".$psilevelname[$data[$name]->PSIStyle]."等級\n";
+		$message.=$data[$name]->SiteName." PSI ".$data[$name]->PSI." ".$psilevelname[$data[$name]->PSIStyle]."等級 ".cmp($log[$name]["PSI"],$data[$name]->PSI)."\n";
 		$over=true;
 	}
+	$log[$name]["PSI"]=$data[$name]->PSI;
 	if($data[$name]->FPMI>=$config["PM2.5_over"]){
-		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]."\n";
+		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]." ".cmp($log[$name]["FPMI"],$data[$name]->FPMI)."\n";
 		$over=true;
 	}
+	$log[$name]["FPMI"]=$data[$name]->FPMI;
 }
+file_put_contents("log.txt", json_encode($log));
 echo $message."\n";
 if($over){
 	$params = array(
