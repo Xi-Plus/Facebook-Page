@@ -63,12 +63,12 @@ function cmp($old,$new){
 }
 foreach ($followlist as $name) {
 	if($data[$name]->PSI>=$config["PSI_over"]){
-		$message.=$data[$name]->SiteName." PSI ".$data[$name]->PSI." ".$psilevelname[$data[$name]->PSIStyle]."等級 ".cmp($log[$name]["PSI"],$data[$name]->PSI)."\n";
+		$message.=$data[$name]->SiteName." PSI ".$data[$name]->PSI.cmp($log[$name]["PSI"],$data[$name]->PSI)." ".$psilevelname[$data[$name]->PSIStyle]."等級\n";
 		$over=true;
 	}
 	$log[$name]["PSI"]=$data[$name]->PSI;
 	if($data[$name]->FPMI>=$config["PM2.5_over"]){
-		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]." ".cmp($log[$name]["PM25"],$data[$name]->PM25)."\n";
+		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25.cmp($log[$name]["PM25"],$data[$name]->PM25)." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]."\n";
 		$over=true;
 	}
 	$log[$name]["PM25"]=$data[$name]->PM25;
