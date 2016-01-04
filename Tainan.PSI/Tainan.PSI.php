@@ -68,10 +68,10 @@ foreach ($followlist as $name) {
 	}
 	$log[$name]["PSI"]=$data[$name]->PSI;
 	if($data[$name]->FPMI>=$config["PM2.5_over"]){
-		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]." ".cmp($log[$name]["FPMI"],$data[$name]->FPMI)."\n";
+		$message.=$data[$name]->SiteName." PM2.5 ".$data[$name]->PM25." 第".$data[$name]->FPMI."級 分類".$pm25levelname[$data[$name]->FPMI]." ".cmp($log[$name]["PM25"],$data[$name]->PM25)."\n";
 		$over=true;
 	}
-	$log[$name]["FPMI"]=$data[$name]->FPMI;
+	$log[$name]["PM25"]=$data[$name]->PM25;
 }
 file_put_contents("log.txt", json_encode($log));
 echo $message."\n";
@@ -79,7 +79,7 @@ if($over){
 	$params = array(
 		"message"=>$message
 	);
-	$response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
+	// $response=$fb->post("/".$config['page_id']."/feed",$params,$page_token)->getDecodedBody();
 	var_dump($response);
 }
 ?>
