@@ -1,5 +1,6 @@
 <?php
 ini_set("display_errors",1);
+chdir(__DIR__);
 if(PHP_SAPI!="cli"){
 	echo "No permission.";
 	exit;
