@@ -54,7 +54,7 @@ $pm25levelname=array(
 );
 $followlist=array("Tainan","Annan","Shanhua");
 $over=false;
-$message=date("Y/m/d G")."時\n";
+$message="";
 $log=file_get_contents("log.txt");
 $log=json_decode($log,true);
 function cmp($old,$new){
