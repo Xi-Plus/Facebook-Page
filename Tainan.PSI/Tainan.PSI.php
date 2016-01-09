@@ -58,9 +58,9 @@ $message="";
 $log=file_get_contents("log.txt");
 $log=json_decode($log,true);
 function cmp($old,$new){
-	if($new>$old)return "▲";
-	else if($new<$old)return "▼";
-	else return "●";
+	if($new>$old)return "🔺";
+	else if($new<$old)return "🔻";
+	else return "➖";
 }
 foreach ($followlist as $name) {
 	if($data[$name]->PSI>=$config["PSI_over"]){
