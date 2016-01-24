@@ -2,10 +2,10 @@
 Facebook粉絲專頁原始碼
 
 ## 安裝
-1. 重命名 `global_config_example.php` 為 `global_config.php` 並修改.
+1. 複製 `global_config_example.php` 到 `global_config.php` 並修改.
 2. 修改子資料夾內 `config.php`.
-3. 從 https://github.com/Xi-Plus/SQL-function 下載 `sql.php`
-4. 從 https://github.com/facebook/facebook-php-sdk-v4 下載 **Facebook SDK for PHP**
+3. Clone https://github.com/Xi-Plus/SQL-function 到 `function/`
+4. Clone https://github.com/facebook/facebook-php-sdk-v4 到 `function/`
 
 ### TNFSH.Notification
 [Tnfsh公佈欄通知](http://www.facebook.com/TNFSH.Notification)<br>
