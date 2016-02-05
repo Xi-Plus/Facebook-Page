@@ -1,0 +1,6 @@
+[submodule "function/SQL-function"]
+	path = function/SQL-function
+	url = https://github.com/Xi-Plus/SQL-function.git
+[submodule "function/facebook-php-sdk-v4"]
+	path = function/facebook-php-sdk-v4
+	url = https://github.com/facebook/facebook-php-sdk-v4.git
