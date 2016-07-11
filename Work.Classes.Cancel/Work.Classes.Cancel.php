@@ -24,11 +24,11 @@ foreach($response["data"] as $temp){
 }
 
 $html=file_get_contents("http://www.dgpa.gov.tw/");
+if ($html===false) {
+	exit("get fail");
+}
 $log=json_decode(file_get_contents("log.txt"), true);
 $html=str_replace(array("\r\n","\n","\t"),"",$html);
-if (!strpos($html, "天然災害停止上班及上課情形")) {
-	exit("無停班停課訊息");
-}
 $message="";
 foreach ($config["city_list"] as $city) {
 	echo $city;
@@ -41,7 +41,8 @@ foreach ($config["city_list"] as $city) {
 			$message.=$city." 更新為「".$text."」\n";
 		}
 	} else {
-		echo " fail";
+		$log[$city]="";
+		echo " 無停班停課訊息";
 	}
 	echo "\n";
 }
