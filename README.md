@@ -5,10 +5,6 @@ Facebook粉絲專頁原始碼
 1. 複製 `global_config_example.php` 到 `global_config.php` 並修改.
 2. 修改子資料夾內 `config.php`.
 
-### Todays.Festival
-[Today's Festival](http://www.facebook.com/493820264128751)<br>
-發布[中文維基百科當天日期](https://zh.wikipedia.org/zh-tw/歷史上的今天)的節假日和習俗
-
 ### clock
 [報時](http://www.facebook.com/1459865700971384)<br>
 發布現在時間
