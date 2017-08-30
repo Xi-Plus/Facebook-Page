@@ -1,5 +1,4 @@
 <?php
-ini_set("display_errors",1);
 if(PHP_SAPI!="cli"){
 	echo "No permission.";
 	exit;
@@ -8,6 +7,7 @@ require_once(__DIR__.'/../global_config.php');
 require_once(__DIR__.'/config.php');
 require_once($config['sql_path']);
 require_once($config['facebook_sdk_path']);
+date_default_timezone_set("Asia/Taipei");
 
 $fb = new Facebook\Facebook([
 	'app_id' => $config['app_id'],
